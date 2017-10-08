@@ -21,29 +21,34 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
         System.out.println("## I'm in the LifeCycleBean Constructor");
     }
 
+    //From DisposableBean Interface
     @Override
     public void destroy() throws Exception {
         System.out.println("## The Lifecycle bean has been terminated");
 
     }
 
+    //From InitializingBean Interface
     @Override
     public void afterPropertiesSet() throws Exception {
         System.out.println("## The LifeCycleBean has its properties set!");
 
     }
 
+    //From BeanFactoryAware Interface
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
         System.out.println("## Bean Factory has been set");
     }
 
+    //From BeanNameAware Interface
     @Override
     public void setBeanName(String name) {
         System.out.println("## My Bean Name is: " + name);
 
     }
 
+    //From ApplicationContextAware Interface
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         System.out.println("## Application context has been set");
